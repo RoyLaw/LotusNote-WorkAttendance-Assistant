@@ -50,7 +50,7 @@ def checkIn(username , password) :
 
 	#headers for checkin
 	headers4checkin = {"Accept": "image/gif, image/jpeg, image/pjpeg, image/pjpeg, application/x-shockwave-flash, application/xaml+xml, application/vnd.ms-xpsdocument, application/x-ms-xbap, application/x-ms-application, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*" ,
-	"Referer": "http://127.0.0.1/checkin.nsf/bykqjl?openform",
+	"Referer": "http://127.0.0.1/checkin.nsf/checkin?openform",
 	"Accept-Language": "zh-cn",
 	"User-Agent": "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; Maxthon; .NET CLR 1.1.4322; .NET CLR 2.0.50727; .NET CLR 3.0.04506.30)",
 	"Content-Type": "application/x-www-form-urlencoded",
@@ -61,11 +61,11 @@ def checkIn(username , password) :
 	"Cookie" : "DomAuthSessId="+DomAuth}
 
 	#checkin request
-	conn.request('GET', '/checkin.nsf/bykqjl?openform', headers = headers4checkin)
+	conn.request('GET', '/checkin.nsf/checkin?openform', headers = headers4checkin)
 	conn.close()
 	time.sleep(1)
 	conn = httplib.HTTPConnection("127.0.0.1", 80)
-	conn.request('POST', '/checkin.nsf/bykqjl?OpenForm&Seq=1', params4checkin, headers4checkin)
+	conn.request('POST', '/checkin.nsf/checkin?OpenForm&Seq=1', params4checkin, headers4checkin)
 	conn.close()
 	
 try	:
